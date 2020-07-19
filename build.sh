@@ -73,148 +73,194 @@ download(){
   REPLACE="$rebuild" CACHE_DIR="$DOWNLOAD_DIR" ../fetchurl "http://cache/$filename"
 }
 
-echo "#### FFmpeg static build ####"
+echo "#### FFmpeg static build at date: $(date -I'seconds') ####"
 
 #this is our working directory
 cd $BUILD_DIR
 
+#OLD (11.08.2014) - OK
+#CHECK 04.02.2020 - SAME VERSION
 [ $is_x86 -eq 1 ] && download \
   "yasm-1.3.0.tar.gz" \
   "" \
   "fc9e586751ff789b34b1f21d572d96af" \
-  "http://www.tortall.net/projects/yasm/releases/"
+  "https://www.tortall.net/projects/yasm/releases/"
 
+#UPD (26.12.2018)
+#CHECK 04.02.2020 - SAME VERSION
 [ $is_x86 -eq 1 ] && download \
-  "nasm-2.13.01.tar.gz" \
+  "nasm-2.14.02.tar.gz" \
   "" \
-  "16050aa29bc0358989ef751d12b04ed2" \
-  "http://www.nasm.us/pub/nasm/releasebuilds/2.13.01/"
+  "58886d8a4084d7c09adb0f425266051b" \
+  "https://www.nasm.us/pub/nasm/releasebuilds/2.14.02/"
 
+#UPD (10.09.2019)
+#CHECK 04.02.2020 - BUMP 1.0.2t to 1.0.2u 20.12.2019
 download \
-  "OpenSSL_1_0_2o.tar.gz" \
+  "OpenSSL_1_0_2u.tar.gz" \
   "" \
-  "5b5c050f83feaa0c784070637fac3af4" \
+  "c38577624507dad3a4a1f3d07b84fa59" \
   "https://github.com/openssl/openssl/archive/"
 
+#OLD (15.01.2017) - OK
+#CHECK 04.02.2020 - SAME VERSION
 download \
   "v1.2.11.tar.gz" \
   "zlib-1.2.11.tar.gz" \
   "0095d2d2d1f3442ce1318336637b695f" \
   "https://github.com/madler/zlib/archive/"
 
+#LATEST
+#CHECK 04.02.2020 - UPDATE https://download.videolan.org/pub/videolan/x264/snapshots/ to https://code.videolan.org/videolan/x264/-/branches
 download \
-  "last_x264.tar.bz2" \
+  "x264-stable.tar.gz" \
   "" \
   "nil" \
-  "http://download.videolan.org/pub/videolan/x264/snapshots/"
+  "https://code.videolan.org/videolan/x264/-/archive/stable"
 
+#UPD (29.10.2019)
+#CHECK 04.02.2020 - SAME VERSION
 download \
-  "x265_2.7.tar.gz" \
+  "x265_3.2.1.tar.gz" \
   "" \
-  "b0d7d20da2a418fa4f53a559946ea079" \
+  "94808045a34d88a857e5eaf3f68f4bca" \
   "https://bitbucket.org/multicoreware/x265/downloads/"
 
+#UPD (08.10.2019)
+#CHECK 04.02.2020 - SAME VERSION
 download \
-  "v0.1.6.tar.gz" \
+  "v2.0.1.tar.gz" \
   "fdk-aac.tar.gz" \
-  "223d5f579d29fb0d019a775da4e0e061" \
+  "nil" \
   "https://github.com/mstorsjo/fdk-aac/archive"
 
 # libass dependency
+#UPD (29.10.2019)
+#CHECK 04.02.2020 - SAME VERSION
 download \
-  "harfbuzz-1.4.6.tar.bz2" \
+  "harfbuzz-2.6.4.tar.xz" \
   "" \
-  "e246c08a3bac98e31e731b2a1bf97edf" \
+  "2b3a4dfdb3e5e50055f941978944da9f" \
   "https://www.freedesktop.org/software/harfbuzz/release/"
 
+#UPD (27.09.2019)
+#CHECK 04.02.2020 - BUMP 1.0.7 to 1.0.8 13.12.2019
 download \
-  "fribidi-1.0.2.tar.bz2" \
+  "fribidi-1.0.8.tar.bz2" \
   "" \
-  "bd2eb2f3a01ba11a541153f505005a7b" \
-  "https://github.com/fribidi/fribidi/releases/download/v1.0.2/"
+  "962c7d8ebaa711d4e306161dbe14aa55" \
+  "https://github.com/fribidi/fribidi/releases/download/v1.0.8/"
 
+#OLD (31.10.2017)
+#CHECK 04.02.2020 - SAME VERSION
 download \
-  "0.13.6.tar.gz" \
-  "libass-0.13.6.tar.gz" \
-  "nil" \
+  "0.14.0.tar.gz" \
+  "libass-0.14.0.tar.gz" \
+  "3c84884aa0589486bded10f71829bf39" \
   "https://github.com/libass/libass/archive/"
 
+#UPD, BUT OLD (13.10.2017)
+#CHECK 04.02.2020 - SAME VERSION
 download \
-  "lame-3.99.5.tar.gz" \
+  "lame-3.100.tar.gz" \
   "" \
-  "84835b313d4a8b68f5349816d33e07ce" \
-  "http://downloads.sourceforge.net/project/lame/lame/3.99"
+  "83e260acbe4389b54fe08e0bdbf7cddb" \
+  "https://downloads.sourceforge.net/project/lame/lame/3.100"
 
+#UPD (12.04.2019)
+#CHECK 04.02.2020 - SAME VERSION
 download \
-  "opus-1.1.2.tar.gz" \
+  "opus-1.3.1.tar.gz" \
   "" \
-  "1f08a661bc72930187893a07f3741a91" \
-  "https://github.com/xiph/opus/releases/download/v1.1.2"
+  "d7c07db796d21c9cf1861e0c2b0c0617" \
+  "https://github.com/xiph/opus/releases/download/v1.3.1"
 
+#UPD (16.07.2019)
+#CHECK 04.02.2020 - BUMP 1.8.1 to 1.8.2 10.12.2019
 download \
-  "v1.6.1.tar.gz" \
-  "vpx-1.6.1.tar.gz" \
-  "b0925c8266e2859311860db5d76d1671" \
+  "v1.8.2.tar.gz" \
+  "vpx-1.8.2.tar.gz" \
+  "6dbccca688886c66a216d7e445525bce" \
   "https://github.com/webmproject/libvpx/archive"
 
+#OLD
+#CHECK 04.02.2020 - SAME VERSION
 download \
   "rtmpdump-2.3.tgz" \
   "" \
   "eb961f31cd55f0acf5aad1a7b900ef59" \
   "https://rtmpdump.mplayerhq.hu/download/"
 
+#UPD (24.02.2018)
+#CHECK 04.02.2020 - SAME VERSION
 download \
-  "soxr-0.1.2-Source.tar.xz" \
+  "soxr-0.1.3-Source.tar.xz" \
   "" \
-  "0866fc4320e26f47152798ac000de1c0" \
+  "3f16f4dcb35b471682d4321eda6f6c08" \
   "https://sourceforge.net/projects/soxr/files/"
 
+#UPD BUT OLD (30.05.2017)
+#CHECK 04.02.2020 - SAME VERSION
 download \
-  "release-0.98b.tar.gz" \
-  "vid.stab-release-0.98b.tar.gz" \
-  "299b2f4ccd1b94c274f6d94ed4f1c5b8" \
+  "v1.1.0.tar.gz" \
+  "vid.stab-1.1.0.tar.gz" \
+  "633af54b7e2fd5734265ac7488ac263a" \
   "https://github.com/georgmartius/vid.stab/archive/"
 
+#UPD (25.07.2019)
+#CHECK 04.02.2020 - SAME VERSION
 download \
-  "release-2.7.4.tar.gz" \
-  "zimg-release-2.7.4.tar.gz" \
-  "1757dcc11590ef3b5a56c701fd286345" \
+  "release-2.9.2.tar.gz" \
+  "zimg-release-2.9.2.tar.gz" \
+  "a3755bff6207fcca5c06e7b1b408ce2e" \
   "https://github.com/sekrit-twc/zimg/archive/"
 
+#UPD (02.04.2019)
+#CHECK 04.02.2020 - SAME VERSION
 download \
-  "v2.1.2.tar.gz" \
-  "openjpeg-2.1.2.tar.gz" \
-  "40a7bfdcc66280b3c1402a0eb1a27624" \
+  "v2.3.1.tar.gz" \
+  "openjpeg-2.3.1.tar.gz" \
+  "3b9941dc7a52f0376694adb15a72903f" \
   "https://github.com/uclouvain/openjpeg/archive/"
 
+#UPD (13.08.2019)
+#CHECK 04.02.2020 - BUMP 1.0.3 to 1.1.0 19.12.2019
 download \
-  "v0.6.1.tar.gz" \
-  "libwebp-0.6.1.tar.gz" \
-  "1c3099cd2656d0d80d3550ee29fc0f28" \
+  "v1.1.0.tar.gz" \
+  "libwebp-1.1.0.tar.gz" \
+  "35831dd0f8d42119691eb36f2b9d23b7" \
   "https://github.com/webmproject/libwebp/archive/"
 
+#OLD
+#CHECK 04.02.2020 - SAME VERSION
 download \
   "v1.3.6.tar.gz" \
   "vorbis-1.3.6.tar.gz" \
   "03e967efb961f65a313459c5d0f4cbfb" \
   "https://github.com/xiph/vorbis/archive/"
 
+#UPD (30.08.2019)
+#CHECK 04.02.2020 - SAME VERSION
 download \
-  "v1.3.3.tar.gz" \
-  "ogg-1.3.3.tar.gz" \
-  "b8da1fe5ed84964834d40855ba7b93c2" \
+  "v1.3.4.tar.gz" \
+  "ogg-1.3.4.tar.gz" \
+  "df1a9a95251a289aa5515b869db4b15f" \
   "https://github.com/xiph/ogg/archive/"
 
+#OLD (07.12.2016)
+#CHECK 04.02.2020 - SAME VERSION
 download \
   "Speex-1.2.0.tar.gz" \
   "Speex-1.2.0.tar.gz" \
   "4bec86331abef56129f9d1c994823f03" \
   "https://github.com/xiph/speex/archive/"
 
+#UPD (07.09.2019)
+#CHECK 04.02.2020 - BUMP 4.2.1 to 4.2.2 31.12.2019
 download \
-  "n4.0.tar.gz" \
-  "ffmpeg4.0.tar.gz" \
-  "4749a5e56f31e7ccebd3f9924972220f" \
+  "n4.2.2.tar.gz" \
+  "ffmpeg4.2.2.tar.gz" \
+  "85c99f782dd3244a8e02ea85d29ecee2" \
   "https://github.com/FFmpeg/FFmpeg/archive"
 
 [ $download_only -eq 1 ] && exit 0
@@ -264,7 +310,7 @@ make install
 echo "*** Building x264 ***"
 cd $BUILD_DIR/x264*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-[ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR --enable-static --disable-shared --disable-opencl --enable-pic
+[ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR --enable-static --disable-opencl --enable-pic --enable-asm
 PATH="$BIN_DIR:$PATH" make -j $jval
 make install
 
@@ -353,7 +399,7 @@ make -j $jval
 make install
 
 echo "*** Building libvidstab ***"
-cd $BUILD_DIR/vid.stab-release-*
+cd $BUILD_DIR/vid.stab*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
 if [ "$platform" = "linux" ]; then
   sed -i "s/vidstab SHARED/vidstab STATIC/" ./CMakeLists.txt
@@ -441,7 +487,7 @@ if [ "$platform" = "linux" ]; then
     --enable-libopencore-amrwb \
     --enable-libopenjpeg \
     --enable-libopus \
-    --enable-librtmp \
+    --disable-librtmp \
     --enable-libsoxr \
     --enable-libspeex \
     --enable-libtheora \
@@ -481,7 +527,7 @@ elif [ "$platform" = "darwin" ]; then
     --enable-libopencore-amrwb \
     --enable-libopenjpeg \
     --enable-libopus \
-    --enable-librtmp \
+    --disable-librtmp \
     --enable-libsoxr \
     --enable-libspeex \
     --enable-libvidstab \
