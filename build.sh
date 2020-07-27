@@ -3,6 +3,8 @@
 set -e
 set -u
 
+echo "\nNow run script [ $0 $@ ]\n";
+
 jflag=
 jval=2
 rebuild=0
@@ -78,239 +80,115 @@ echo "#### FFmpeg static build at date: $(date -I'seconds') ####"
 #this is our working directory
 cd $BUILD_DIR
 
-#OLD (11.08.2014) - OK
-#CHECK 04.02.2020 - SAME VERSION
 [ $is_x86 -eq 1 ] && download \
-  "yasm-1.3.0.tar.gz" \
-  "" \
-  "fc9e586751ff789b34b1f21d572d96af" \
-  "https://www.tortall.net/projects/yasm/releases/"
+  "yasm-1.3.0.tar.gz" "" "fc9e586751ff789b34b1f21d572d96af" "https://www.tortall.net/projects/yasm/releases/"
 
-#UPD (26.12.2018)
-#CHECK 04.02.2020 - SAME VERSION
 [ $is_x86 -eq 1 ] && download \
-  "nasm-2.14.02.tar.gz" \
-  "" \
-  "58886d8a4084d7c09adb0f425266051b" \
-  "https://www.nasm.us/pub/nasm/releasebuilds/2.14.02/"
+  "nasm-2.15.02.tar.gz" "" "b9bc8da69e86ef30c6ec1c0d5b62b185" "https://www.nasm.us/pub/nasm/releasebuilds/2.15.02/"
 
-#UPD (10.09.2019)
-#CHECK 04.02.2020 - BUMP 1.0.2t to 1.0.2u 20.12.2019
-download \
-  "OpenSSL_1_0_2u.tar.gz" \
-  "" \
-  "c38577624507dad3a4a1f3d07b84fa59" \
-  "https://github.com/openssl/openssl/archive/"
 
-#OLD (15.01.2017) - OK
-#CHECK 04.02.2020 - SAME VERSION
 download \
-  "v1.2.11.tar.gz" \
-  "zlib-1.2.11.tar.gz" \
-  "0095d2d2d1f3442ce1318336637b695f" \
-  "https://github.com/madler/zlib/archive/"
+  "OpenSSL_1_1_1g.tar.gz" "" "dd32f35dd5d543c571bc9ebb90ebe54e" "https://github.com/openssl/openssl/archive/"
+  #"OpenSSL_1_1_0-stable.tar.gz" "" "d3cdee428d9c2ebddb7ebaeda2a4cd0c" "https://github.com/openssl/openssl/archive/"
+  #"OpenSSL_1_0_2u.tar.gz" "" "c38577624507dad3a4a1f3d07b84fa59" "https://github.com/openssl/openssl/archive/"
 
-#LATEST
-#CHECK 04.02.2020 - UPDATE https://download.videolan.org/pub/videolan/x264/snapshots/ to https://code.videolan.org/videolan/x264/-/branches
 download \
-  "x264-stable.tar.gz" \
-  "" \
-  "nil" \
-  "https://code.videolan.org/videolan/x264/-/archive/stable"
+  "v1.2.11.tar.gz" "zlib-1.2.11.tar.gz" "0095d2d2d1f3442ce1318336637b695f" "https://github.com/madler/zlib/archive/"
 
-#UPD (29.10.2019)
-#CHECK 04.02.2020 - SAME VERSION
-download \
-  "x265_3.2.1.tar.gz" \
-  "" \
-  "94808045a34d88a857e5eaf3f68f4bca" \
-  "https://bitbucket.org/multicoreware/x265/downloads/"
 
-#UPD (08.10.2019)
-#CHECK 04.02.2020 - SAME VERSION
 download \
-  "v2.0.1.tar.gz" \
-  "fdk-aac.tar.gz" \
-  "nil" \
-  "https://github.com/mstorsjo/fdk-aac/archive"
+  "x264-stable.tar.gz" "" "nil" "https://code.videolan.org/videolan/x264/-/archive/stable"
 
-# libass dependency
-#UPD (29.10.2019)
-#CHECK 04.02.2020 - SAME VERSION
 download \
-  "harfbuzz-2.6.4.tar.xz" \
-  "" \
-  "2b3a4dfdb3e5e50055f941978944da9f" \
-  "https://www.freedesktop.org/software/harfbuzz/release/"
+  "x265_3.4.tar.gz" "" "e37b91c1c114f8815a3f46f039fe79b5" "https://bitbucket.org/multicoreware/x265/downloads/"
 
-#UPD (27.09.2019)
-#CHECK 04.02.2020 - BUMP 1.0.7 to 1.0.8 13.12.2019
 download \
-  "fribidi-1.0.8.tar.bz2" \
-  "" \
-  "962c7d8ebaa711d4e306161dbe14aa55" \
-  "https://github.com/fribidi/fribidi/releases/download/v1.0.8/"
+  "v2.0.1.tar.gz" "fdk-aac.tar.gz" "nil" "https://github.com/mstorsjo/fdk-aac/archive"
 
-#OLD (31.10.2017)
-#CHECK 04.02.2020 - SAME VERSION
+#libass dependency
 download \
-  "0.14.0.tar.gz" \
-  "libass-0.14.0.tar.gz" \
-  "3c84884aa0589486bded10f71829bf39" \
-  "https://github.com/libass/libass/archive/"
+  "harfbuzz-2.6.7.tar.xz" "" "3b884586a09328c5fae76d8c200b0e1c" "https://www.freedesktop.org/software/harfbuzz/release/"
 
-#UPD, BUT OLD (13.10.2017)
-#CHECK 04.02.2020 - SAME VERSION
 download \
-  "lame-3.100.tar.gz" \
-  "" \
-  "83e260acbe4389b54fe08e0bdbf7cddb" \
-  "https://downloads.sourceforge.net/project/lame/lame/3.100"
+  "fribidi-1.0.8.tar.bz2" "" "962c7d8ebaa711d4e306161dbe14aa55" "https://github.com/fribidi/fribidi/releases/download/v1.0.8/"
+  #"fribidi-1.0.9.tar.gz" "" "" "https://github.com/fribidi/fribidi/releases/download/v1.0.9/"
+  #"v1.0.10.tar.gz" "fribidi-1.0.10.tar.gz" "3a6129633ae97a2cec57a6ca53d50599" "https://github.com/fribidi/fribidi/archive/"
 
-#UPD (12.04.2019)
-#CHECK 04.02.2020 - SAME VERSION
 download \
-  "opus-1.3.1.tar.gz" \
-  "" \
-  "d7c07db796d21c9cf1861e0c2b0c0617" \
-  "https://github.com/xiph/opus/releases/download/v1.3.1"
+  "0.14.0.tar.gz" "libass-0.14.0.tar.gz" "3c84884aa0589486bded10f71829bf39" "https://github.com/libass/libass/archive/"
 
-#UPD (16.07.2019)
-#CHECK 04.02.2020 - BUMP 1.8.1 to 1.8.2 10.12.2019
 download \
-  "v1.8.2.tar.gz" \
-  "vpx-1.8.2.tar.gz" \
-  "6dbccca688886c66a216d7e445525bce" \
-  "https://github.com/webmproject/libvpx/archive"
+  "lame-3.100.tar.gz" "" "83e260acbe4389b54fe08e0bdbf7cddb" "https://downloads.sourceforge.net/project/lame/lame/3.100"
 
-#OLD
-#CHECK 04.02.2020 - SAME VERSION
 download \
-  "rtmpdump-2.3.tgz" \
-  "" \
-  "eb961f31cd55f0acf5aad1a7b900ef59" \
-  "https://rtmpdump.mplayerhq.hu/download/"
+  "opus-1.3.1.tar.gz" "" "d7c07db796d21c9cf1861e0c2b0c0617" "https://github.com/xiph/opus/releases/download/v1.3.1"
 
-#UPD (24.02.2018)
-#CHECK 04.02.2020 - SAME VERSION
 download \
-  "soxr-0.1.3-Source.tar.xz" \
-  "" \
-  "3f16f4dcb35b471682d4321eda6f6c08" \
-  "https://sourceforge.net/projects/soxr/files/"
+  "v1.8.2.tar.gz" "vpx-1.8.2.tar.gz" "6dbccca688886c66a216d7e445525bce" "https://github.com/webmproject/libvpx/archive"
 
-#UPD BUT OLD (30.05.2017)
-#CHECK 04.02.2020 - SAME VERSION
 download \
-  "v1.1.0.tar.gz" \
-  "vid.stab-1.1.0.tar.gz" \
-  "633af54b7e2fd5734265ac7488ac263a" \
-  "https://github.com/georgmartius/vid.stab/archive/"
+  "soxr-0.1.3-Source.tar.xz" "" "3f16f4dcb35b471682d4321eda6f6c08" "https://sourceforge.net/projects/soxr/files/"
 
-#UPD (25.07.2019)
-#CHECK 04.02.2020 - SAME VERSION
 download \
-  "release-2.9.2.tar.gz" \
-  "zimg-release-2.9.2.tar.gz" \
-  "a3755bff6207fcca5c06e7b1b408ce2e" \
-  "https://github.com/sekrit-twc/zimg/archive/"
+  "v1.1.0.tar.gz" "vid.stab-1.1.0.tar.gz" "633af54b7e2fd5734265ac7488ac263a" "https://github.com/georgmartius/vid.stab/archive/"
 
-#UPD (02.04.2019)
-#CHECK 04.02.2020 - SAME VERSION
 download \
-  "v2.3.1.tar.gz" \
-  "openjpeg-2.3.1.tar.gz" \
-  "3b9941dc7a52f0376694adb15a72903f" \
-  "https://github.com/uclouvain/openjpeg/archive/"
+  "release-2.9.3.tar.gz" "zimg-release-2.9.3.tar.gz" "05c9da525024b4f2ab4bd208e591a920" "https://github.com/sekrit-twc/zimg/archive/"
 
-#UPD (13.08.2019)
-#CHECK 04.02.2020 - BUMP 1.0.3 to 1.1.0 19.12.2019
 download \
-  "v1.1.0.tar.gz" \
-  "libwebp-1.1.0.tar.gz" \
-  "35831dd0f8d42119691eb36f2b9d23b7" \
-  "https://github.com/webmproject/libwebp/archive/"
+  "v2.3.1.tar.gz" "openjpeg-2.3.1.tar.gz" "3b9941dc7a52f0376694adb15a72903f" "https://github.com/uclouvain/openjpeg/archive/"
 
-#OLD
-#CHECK 04.02.2020 - SAME VERSION
 download \
-  "v1.3.6.tar.gz" \
-  "vorbis-1.3.6.tar.gz" \
-  "03e967efb961f65a313459c5d0f4cbfb" \
-  "https://github.com/xiph/vorbis/archive/"
+  "v1.1.0.tar.gz" "libwebp-1.1.0.tar.gz" "35831dd0f8d42119691eb36f2b9d23b7" "https://github.com/webmproject/libwebp/archive/"
 
-#UPD (30.08.2019)
-#CHECK 04.02.2020 - SAME VERSION
 download \
-  "v1.3.4.tar.gz" \
-  "ogg-1.3.4.tar.gz" \
-  "df1a9a95251a289aa5515b869db4b15f" \
-  "https://github.com/xiph/ogg/archive/"
+  "v1.3.7.tar.gz" "vorbis-1.3.7.tar.gz" "689dc495b22c5f08246c00dab35f1dc7" "https://github.com/xiph/vorbis/archive/"
 
-#OLD (07.12.2016)
-#CHECK 04.02.2020 - SAME VERSION
 download \
-  "Speex-1.2.0.tar.gz" \
-  "Speex-1.2.0.tar.gz" \
-  "4bec86331abef56129f9d1c994823f03" \
-  "https://github.com/xiph/speex/archive/"
+  "v1.3.4.tar.gz" "ogg-1.3.4.tar.gz" "df1a9a95251a289aa5515b869db4b15f" "https://github.com/xiph/ogg/archive/"
 
-#UPD (07.09.2019)
-#CHECK 04.02.2020 - BUMP 4.2.1 to 4.2.2 31.12.2019
 download \
-  "n4.2.2.tar.gz" \
-  "ffmpeg4.2.2.tar.gz" \
-  "85c99f782dd3244a8e02ea85d29ecee2" \
-  "https://github.com/FFmpeg/FFmpeg/archive"
+  "Speex-1.2.0.tar.gz" "Speex-1.2.0.tar.gz" "4bec86331abef56129f9d1c994823f03" "https://github.com/xiph/speex/archive/"
+
+download \
+  "n4.3.1.tar.gz" "ffmpeg4.3.1.tar.gz" "426ca412ca61634a248c787e29507206" "https://github.com/FFmpeg/FFmpeg/archive/"
 
 [ $download_only -eq 1 ] && exit 0
 
 TARGET_DIR_SED=$(echo $TARGET_DIR | awk '{gsub(/\//, "\\/"); print}')
 
-if [ $is_x86 -eq 1 ]; then
-    echo "*** Building yasm ***"
-    cd $BUILD_DIR/yasm*
-    [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-    [ ! -f config.status ] && ./configure --prefix=$TARGET_DIR --bindir=$BIN_DIR
-    make -j $jval
-    make install
-fi
+echo "*** Building yasm ***"
+cd $BUILD_DIR/yasm*
+[ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
+[ ! -f config.status ] && ./configure --prefix=$TARGET_DIR --bindir=$BIN_DIR
+make -j $jval
+make install
 
-if [ $is_x86 -eq 1 ]; then
-    echo "*** Building nasm ***"
-    cd $BUILD_DIR/nasm*
-    [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-    [ ! -f config.status ] && ./configure --prefix=$TARGET_DIR --bindir=$BIN_DIR
-    make -j $jval
-    make install
-fi
+echo "*** Building nasm ***"
+cd $BUILD_DIR/nasm*
+[ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
+[ ! -f config.status ] && ./configure --prefix=$TARGET_DIR --bindir=$BIN_DIR --disable-docs --disable-man --disable-html
+make -j $jval
+make install
 
 echo "*** Building OpenSSL ***"
 cd $BUILD_DIR/openssl*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-if [ "$platform" = "darwin" ]; then
-  PATH="$BIN_DIR:$PATH" ./Configure darwin64-x86_64-cc --prefix=$TARGET_DIR
-elif [ "$platform" = "linux" ]; then
-  PATH="$BIN_DIR:$PATH" ./config --prefix=$TARGET_DIR
-fi
+PATH="$BIN_DIR:$PATH" ./config --prefix=$TARGET_DIR
 PATH="$BIN_DIR:$PATH" make -j $jval
-make install
+make install_sw
 
 echo "*** Building zlib ***"
 cd $BUILD_DIR/zlib*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-if [ "$platform" = "linux" ]; then
-  [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR
-elif [ "$platform" = "darwin" ]; then
-  [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR
-fi
+[ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR
 PATH="$BIN_DIR:$PATH" make -j $jval
 make install
 
 echo "*** Building x264 ***"
 cd $BUILD_DIR/x264*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-[ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR --enable-static --disable-opencl --enable-pic --enable-asm
+[ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR --enable-static --disable-opencl --enable-pic
 PATH="$BIN_DIR:$PATH" make -j $jval
 make install
 
@@ -327,21 +205,22 @@ echo "*** Building fdk-aac ***"
 cd $BUILD_DIR/fdk-aac*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
 autoreconf -fiv
-[ ! -f config.status ] && ./configure --prefix=$TARGET_DIR --disable-shared
+[ ! -f config.status ] && ./configure --prefix=$TARGET_DIR --disable-shared --disable-docs --disable-man --disable-html
 make -j $jval
 make install
 
 echo "*** Building harfbuzz ***"
 cd $BUILD_DIR/harfbuzz-*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-./configure --prefix=$TARGET_DIR --disable-shared --enable-static
+./configure --prefix=$TARGET_DIR --disable-shared --enable-static --disable-docs --disable-man --disable-html
 make -j $jval
 make install
 
 echo "*** Building fribidi ***"
 cd $BUILD_DIR/fribidi-*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-./configure --prefix=$TARGET_DIR --disable-shared --enable-static --disable-docs
+#./autogen.sh --prefix=$TARGET_DIR --disable-shared --enable-static
+./configure --prefix=$TARGET_DIR --disable-shared --enable-static --disable-docs --disable-man --disable-html
 make -j $jval
 make install
 
@@ -349,7 +228,7 @@ echo "*** Building libass ***"
 cd $BUILD_DIR/libass-*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
 ./autogen.sh
-./configure --prefix=$TARGET_DIR --disable-shared
+./configure --prefix=$TARGET_DIR --disable-shared --disable-docs --disable-man --disable-html
 make -j $jval
 make install
 
@@ -358,7 +237,7 @@ cd $BUILD_DIR/lame*
 # The lame build script does not recognize aarch64, so need to set it manually
 uname -a | grep -q 'aarch64' && lame_build_target="--build=arm-linux" || lame_build_target=''
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-[ ! -f config.status ] && ./configure --prefix=$TARGET_DIR --enable-nasm --disable-shared $lame_build_target
+[ ! -f config.status ] && ./configure --prefix=$TARGET_DIR --enable-nasm --disable-shared $lame_build_target --disable-docs --disable-man --disable-html
 make
 make install
 
@@ -376,21 +255,6 @@ cd $BUILD_DIR/libvpx*
 PATH="$BIN_DIR:$PATH" make -j $jval
 make install
 
-echo "*** Building librtmp ***"
-cd $BUILD_DIR/rtmpdump-*
-cd librtmp
-[ $rebuild -eq 1 ] && make distclean || true
-
-# there's no configure, we have to edit Makefile directly
-if [ "$platform" = "linux" ]; then
-  sed -i "/INC=.*/d" ./Makefile # Remove INC if present from previous run.
-  sed -i "s/prefix=.*/prefix=${TARGET_DIR_SED}\nINC=-I\$(prefix)\/include/" ./Makefile
-  sed -i "s/SHARED=.*/SHARED=no/" ./Makefile
-elif [ "$platform" = "darwin" ]; then
-  sed -i "" "s/prefix=.*/prefix=${TARGET_DIR_SED}/" ./Makefile
-fi
-make install_base
-
 echo "*** Building libsoxr ***"
 cd $BUILD_DIR/soxr-*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
@@ -400,13 +264,13 @@ make install
 
 echo "*** Building libvidstab ***"
 cd $BUILD_DIR/vid.stab*
-[ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
+[ $rebuild -eq 1 -a -f Makefile ] && make clean || true
 if [ "$platform" = "linux" ]; then
   sed -i "s/vidstab SHARED/vidstab STATIC/" ./CMakeLists.txt
 elif [ "$platform" = "darwin" ]; then
   sed -i "" "s/vidstab SHARED/vidstab STATIC/" ./CMakeLists.txt
 fi
-PATH="$BIN_DIR:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$TARGET_DIR"
+PATH="$BIN_DIR:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$TARGET_DIR" -DBUILD_SHARED_LIBS:bool=off -DBUILD_STATIC_LIBS:bool=on
 make -j $jval
 make install
 
@@ -469,7 +333,7 @@ if [ "$platform" = "linux" ]; then
     --pkg-config-flags="--static" \
     --extra-cflags="-I$TARGET_DIR/include" \
     --extra-ldflags="-L$TARGET_DIR/lib" \
-    --extra-libs="-lpthread -lm -lz" \
+    --extra-libs="-lpthread -lm -lz -ldl" \
     --extra-ldexeflags="-static" \
     --bindir="$BIN_DIR" \
     --enable-pic \
@@ -545,4 +409,5 @@ fi
 PATH="$BIN_DIR:$PATH" make -j $jval
 make install
 make distclean
+sudo install -D -o root -g root -p ${BIN_DIR}/* /usr/local/bin/
 hash -r
