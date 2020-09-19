@@ -84,11 +84,13 @@ cd $BUILD_DIR
   "yasm-1.3.0.tar.gz" "" "fc9e586751ff789b34b1f21d572d96af" "https://www.tortall.net/projects/yasm/releases/"
 
 [ $is_x86 -eq 1 ] && download \
-  "nasm-2.15.02.tar.gz" "" "b9bc8da69e86ef30c6ec1c0d5b62b185" "https://www.nasm.us/pub/nasm/releasebuilds/2.15.02/"
+  "nasm-2.15.05.tar.gz" "" "4ab99e8e777c249f32d5c10e82c658f1" "https://www.nasm.us/pub/nasm/releasebuilds/2.15.05/"
+  #18.09.2020 "nasm-2.15.02.tar.gz" "" "b9bc8da69e86ef30c6ec1c0d5b62b185" "https://www.nasm.us/pub/nasm/releasebuilds/2.15.02/"
 
 
 download \
-  "OpenSSL_1_1_1g.tar.gz" "" "dd32f35dd5d543c571bc9ebb90ebe54e" "https://github.com/openssl/openssl/archive/"
+  "OpenSSL_1_1_1-stable.tar.gz" "" "22a80a4558aee0bd64f6fca34c6bcc47" "https://github.com/openssl/openssl/archive/"
+  #18.09.2020 "OpenSSL_1_1_1g.tar.gz" "" "dd32f35dd5d543c571bc9ebb90ebe54e" "https://github.com/openssl/openssl/archive/"
   #"OpenSSL_1_1_0-stable.tar.gz" "" "d3cdee428d9c2ebddb7ebaeda2a4cd0c" "https://github.com/openssl/openssl/archive/"
   #"OpenSSL_1_0_2u.tar.gz" "" "c38577624507dad3a4a1f3d07b84fa59" "https://github.com/openssl/openssl/archive/"
 
@@ -100,7 +102,7 @@ download \
   "x264-stable.tar.gz" "" "nil" "https://code.videolan.org/videolan/x264/-/archive/stable"
 
 download \
-  "x265_3.4.tar.gz" "" "e37b91c1c114f8815a3f46f039fe79b5" "https://bitbucket.org/multicoreware/x265/downloads/"
+  "3.4.tar.gz" "x265_3.4.tar.gz" "d867c3a7e19852974cf402c6f6aeaaf3" "https://github.com/videolan/x265/archive/"
 
 download \
   "v2.0.1.tar.gz" "fdk-aac.tar.gz" "nil" "https://github.com/mstorsjo/fdk-aac/archive"
@@ -110,9 +112,9 @@ download \
   "harfbuzz-2.6.7.tar.xz" "" "3b884586a09328c5fae76d8c200b0e1c" "https://www.freedesktop.org/software/harfbuzz/release/"
 
 download \
-  "fribidi-1.0.8.tar.bz2" "" "962c7d8ebaa711d4e306161dbe14aa55" "https://github.com/fribidi/fribidi/releases/download/v1.0.8/"
-  #"fribidi-1.0.9.tar.gz" "" "" "https://github.com/fribidi/fribidi/releases/download/v1.0.9/"
+  "v1.0.9.tar.gz" "fribidi-1.0.9.tar.gz" "1" "https://github.com/fribidi/fribidi/archive/"
   #"v1.0.10.tar.gz" "fribidi-1.0.10.tar.gz" "3a6129633ae97a2cec57a6ca53d50599" "https://github.com/fribidi/fribidi/archive/"
+  #"fribidi-1.0.8.tar.bz2" "" "962c7d8ebaa711d4e306161dbe14aa55" "https://github.com/fribidi/fribidi/releases/download/v1.0.8/"
 
 download \
   "0.14.0.tar.gz" "libass-0.14.0.tar.gz" "3c84884aa0589486bded10f71829bf39" "https://github.com/libass/libass/archive/"
@@ -124,7 +126,7 @@ download \
   "opus-1.3.1.tar.gz" "" "d7c07db796d21c9cf1861e0c2b0c0617" "https://github.com/xiph/opus/releases/download/v1.3.1"
 
 download \
-  "v1.8.2.tar.gz" "vpx-1.8.2.tar.gz" "6dbccca688886c66a216d7e445525bce" "https://github.com/webmproject/libvpx/archive"
+  "v1.9.0.tar.gz" "vpx-1.9.0.tar.gz" "e5fab59896984392124d0bfaffc36e14" "https://github.com/webmproject/libvpx/archive"
 
 download \
   "soxr-0.1.3-Source.tar.xz" "" "3f16f4dcb35b471682d4321eda6f6c08" "https://sourceforge.net/projects/soxr/files/"
@@ -133,7 +135,7 @@ download \
   "v1.1.0.tar.gz" "vid.stab-1.1.0.tar.gz" "633af54b7e2fd5734265ac7488ac263a" "https://github.com/georgmartius/vid.stab/archive/"
 
 download \
-  "release-2.9.3.tar.gz" "zimg-release-2.9.3.tar.gz" "05c9da525024b4f2ab4bd208e591a920" "https://github.com/sekrit-twc/zimg/archive/"
+  "release-3.0.1.tar.gz" "zimg-release-3.0.1.tar.gz" "b14d551f13819314e9733a400da04121" "https://github.com/sekrit-twc/zimg/archive/"
 
 download \
   "v2.3.1.tar.gz" "openjpeg-2.3.1.tar.gz" "3b9941dc7a52f0376694adb15a72903f" "https://github.com/uclouvain/openjpeg/archive/"
@@ -151,7 +153,8 @@ download \
   "Speex-1.2.0.tar.gz" "Speex-1.2.0.tar.gz" "4bec86331abef56129f9d1c994823f03" "https://github.com/xiph/speex/archive/"
 
 download \
-  "n4.3.1.tar.gz" "ffmpeg4.3.1.tar.gz" "426ca412ca61634a248c787e29507206" "https://github.com/FFmpeg/FFmpeg/archive/"
+  "4.3.tar.gz" "ffmpeg4.3.tar.gz" "2e70376c20b4be5c943fcc561423d23e" "https://github.com/FFmpeg/FFmpeg/archive/release/"
+  #"n4.3.1.tar.gz" "ffmpeg4.3.1.tar.gz" "426ca412ca61634a248c787e29507206" "https://github.com/FFmpeg/FFmpeg/archive/"
 
 [ $download_only -eq 1 ] && exit 0
 
@@ -219,7 +222,7 @@ make install
 echo "*** Building fribidi ***"
 cd $BUILD_DIR/fribidi-*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-#./autogen.sh --prefix=$TARGET_DIR --disable-shared --enable-static
+./autogen.sh --prefix=$TARGET_DIR --disable-shared --enable-static
 ./configure --prefix=$TARGET_DIR --disable-shared --enable-static --disable-docs --disable-man --disable-html
 make -j $jval
 make install
