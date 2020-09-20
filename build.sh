@@ -89,10 +89,11 @@ cd $BUILD_DIR
 
 
 download \
-  "OpenSSL_1_1_1-stable.tar.gz" "" "22a80a4558aee0bd64f6fca34c6bcc47" "https://github.com/openssl/openssl/archive/"
-  #18.09.2020 "OpenSSL_1_1_1g.tar.gz" "" "dd32f35dd5d543c571bc9ebb90ebe54e" "https://github.com/openssl/openssl/archive/"
+  "OpenSSL_1_1_1f.tar.gz" "openssl-1.1.1f.tar.gz" "39502a8c91204173150f9a3ff9774f05" "https://github.com/openssl/openssl/archive/"
+  #"OpenSSL_1_1_1-stable.tar.gz" "" "ca5c434578054a5b2768b2b1c56bd359" "https://github.com/openssl/openssl/archive/"
+  #"OpenSSL_1_1_1g.tar.gz" "" "dd32f35dd5d543c571bc9ebb90ebe54e" "https://github.com/openssl/openssl/archive/"
+  #"OpenSSL_1_1_1-stable.tar.gz" "" "22a80a4558aee0bd64f6fca34c6bcc47" "https://github.com/openssl/openssl/archive/"
   #"OpenSSL_1_1_0-stable.tar.gz" "" "d3cdee428d9c2ebddb7ebaeda2a4cd0c" "https://github.com/openssl/openssl/archive/"
-  #"OpenSSL_1_0_2u.tar.gz" "" "c38577624507dad3a4a1f3d07b84fa59" "https://github.com/openssl/openssl/archive/"
 
 download \
   "v1.2.11.tar.gz" "zlib-1.2.11.tar.gz" "0095d2d2d1f3442ce1318336637b695f" "https://github.com/madler/zlib/archive/"
@@ -110,11 +111,12 @@ download \
 #libass dependency
 download \
   "harfbuzz-2.6.7.tar.xz" "" "3b884586a09328c5fae76d8c200b0e1c" "https://www.freedesktop.org/software/harfbuzz/release/"
+  #"2.7.2.tar.gz" "harfbuzz-2.7.2.tar.gz" "2b6dfaf7b3a601c0e2461fcb7fc58736" "https://github.com/harfbuzz/harfbuzz/archive/"
 
 download \
-  "v1.0.9.tar.gz" "fribidi-1.0.9.tar.gz" "1" "https://github.com/fribidi/fribidi/archive/"
+  "v1.0.9.tar.gz" "fribidi-1.0.9.tar.gz" "c7fe906e2aebc87e674fd450b80c2317" "https://github.com/fribidi/fribidi/archive/"
   #"v1.0.10.tar.gz" "fribidi-1.0.10.tar.gz" "3a6129633ae97a2cec57a6ca53d50599" "https://github.com/fribidi/fribidi/archive/"
-  #"fribidi-1.0.8.tar.bz2" "" "962c7d8ebaa711d4e306161dbe14aa55" "https://github.com/fribidi/fribidi/releases/download/v1.0.8/"
+  #v1.0.8.tar.gz" "fribidi-1.0.8.tar.gz" "b279aba7683620c411b16b050cb8f979" "https://github.com/fribidi/fribidi/archive/"
 
 download \
   "0.14.0.tar.gz" "libass-0.14.0.tar.gz" "3c84884aa0589486bded10f71829bf39" "https://github.com/libass/libass/archive/"
@@ -174,12 +176,12 @@ cd $BUILD_DIR/nasm*
 make -j $jval
 make install
 
-echo "*** Building OpenSSL ***"
-cd $BUILD_DIR/openssl*
-[ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-PATH="$BIN_DIR:$PATH" ./config --prefix=$TARGET_DIR
-PATH="$BIN_DIR:$PATH" make -j $jval
-make install_sw
+#echo "*** Building OpenSSL ***"
+#cd $BUILD_DIR/openssl*
+#[ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
+#PATH="$BIN_DIR:$PATH" ./config --prefix=$TARGET_DIR
+#PATH="$BIN_DIR:$PATH" make -j $jval
+#make install_sw
 
 echo "*** Building zlib ***"
 cd $BUILD_DIR/zlib*
@@ -222,9 +224,9 @@ make install
 echo "*** Building fribidi ***"
 cd $BUILD_DIR/fribidi-*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-./autogen.sh --prefix=$TARGET_DIR --disable-shared --enable-static
+./autogen.sh --prefix=$TARGET_DIR --disable-shared --enable-static --disable-docs --disable-man --disable-html
 ./configure --prefix=$TARGET_DIR --disable-shared --enable-static --disable-docs --disable-man --disable-html
-make -j $jval
+make
 make install
 
 echo "*** Building libass ***"
@@ -329,9 +331,8 @@ echo "*** Building FFmpeg ***"
 cd $BUILD_DIR/FFmpeg*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
 
-if [ "$platform" = "linux" ]; then
-  [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" \
-  PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
+[ ! -f config.status ] && PATH="$BIN_DIR:$PATH" \
+PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
     --prefix="$TARGET_DIR" \
     --pkg-config-flags="--static" \
     --extra-cflags="-I$TARGET_DIR/include" \
@@ -369,45 +370,6 @@ if [ "$platform" = "linux" ]; then
     --enable-libzimg \
     --enable-nonfree \
     --enable-openssl
-elif [ "$platform" = "darwin" ]; then
-  [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" \
-  PKG_CONFIG_PATH="${TARGET_DIR}/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/share/pkgconfig:/usr/local/Cellar/openssl/1.0.2o_1/lib/pkgconfig" ./configure \
-    --cc=/usr/bin/clang \
-    --prefix="$TARGET_DIR" \
-    --pkg-config-flags="--static" \
-    --extra-cflags="-I$TARGET_DIR/include" \
-    --extra-ldflags="-L$TARGET_DIR/lib" \
-    --extra-ldexeflags="-Bstatic" \
-    --bindir="$BIN_DIR" \
-    --enable-pic \
-    --enable-ffplay \
-    --enable-fontconfig \
-    --enable-frei0r \
-    --enable-gpl \
-    --enable-version3 \
-    --enable-libass \
-    --enable-libfribidi \
-    --enable-libfdk-aac \
-    --enable-libfreetype \
-    --enable-libmp3lame \
-    --enable-libopencore-amrnb \
-    --enable-libopencore-amrwb \
-    --enable-libopenjpeg \
-    --enable-libopus \
-    --disable-librtmp \
-    --enable-libsoxr \
-    --enable-libspeex \
-    --enable-libvidstab \
-    --enable-libvorbis \
-    --enable-libvpx \
-    --enable-libwebp \
-    --enable-libx264 \
-    --enable-libx265 \
-    --enable-libxvid \
-    --enable-libzimg \
-    --enable-nonfree \
-    --enable-openssl
-fi
 
 PATH="$BIN_DIR:$PATH" make -j $jval
 make install
