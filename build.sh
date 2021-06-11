@@ -89,7 +89,8 @@ cd $BUILD_DIR
 
 
 download \
-  "OpenSSL_1_1_1f.tar.gz" "openssl-1.1.1f.tar.gz" "39502a8c91204173150f9a3ff9774f05" "https://github.com/openssl/openssl/archive/"
+  "OpenSSL_1_1_1k.tar.gz" "openssl-1.1.1k.tar.gz" "bdd51a68ad74618dd2519da8e0bcc759" "https://github.com/openssl/openssl/archive/"
+  #"OpenSSL_1_1_1f.tar.gz" "openssl-1.1.1f.tar.gz" "39502a8c91204173150f9a3ff9774f05" "https://github.com/openssl/openssl/archive/"
   #"OpenSSL_1_1_1-stable.tar.gz" "" "ca5c434578054a5b2768b2b1c56bd359" "https://github.com/openssl/openssl/archive/"
   #"OpenSSL_1_1_1g.tar.gz" "" "dd32f35dd5d543c571bc9ebb90ebe54e" "https://github.com/openssl/openssl/archive/"
   #"OpenSSL_1_1_1-stable.tar.gz" "" "22a80a4558aee0bd64f6fca34c6bcc47" "https://github.com/openssl/openssl/archive/"
@@ -155,7 +156,8 @@ download \
   "Speex-1.2.0.tar.gz" "Speex-1.2.0.tar.gz" "4bec86331abef56129f9d1c994823f03" "https://github.com/xiph/speex/archive/"
 
 download \
-  "4.3.tar.gz" "ffmpeg4.3.tar.gz" "2e70376c20b4be5c943fcc561423d23e" "https://github.com/FFmpeg/FFmpeg/archive/release/"
+  "n4.4.tar.gz" "ffmpeg4.4.tar.gz" "8c52b3e3926fdbac1e7be3761035741d" "https://github.com/FFmpeg/FFmpeg/archive/refs/tags/"
+  #"4.3.tar.gz" "ffmpeg4.3.tar.gz" "2e70376c20b4be5c943fcc561423d23e" "https://github.com/FFmpeg/FFmpeg/archive/release/"
   #"n4.3.1.tar.gz" "ffmpeg4.3.1.tar.gz" "426ca412ca61634a248c787e29507206" "https://github.com/FFmpeg/FFmpeg/archive/"
 
 [ $download_only -eq 1 ] && exit 0
