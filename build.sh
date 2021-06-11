@@ -156,8 +156,8 @@ download \
   "Speex-1.2.0.tar.gz" "Speex-1.2.0.tar.gz" "4bec86331abef56129f9d1c994823f03" "https://github.com/xiph/speex/archive/"
 
 download \
+<<<<<<< HEAD
   "n4.4.tar.gz" "ffmpeg4.4.tar.gz" "8c52b3e3926fdbac1e7be3761035741d" "https://github.com/FFmpeg/FFmpeg/archive/refs/tags/"
-  #"4.3.tar.gz" "ffmpeg4.3.tar.gz" "2e70376c20b4be5c943fcc561423d23e" "https://github.com/FFmpeg/FFmpeg/archive/release/"
   #"n4.3.1.tar.gz" "ffmpeg4.3.1.tar.gz" "426ca412ca61634a248c787e29507206" "https://github.com/FFmpeg/FFmpeg/archive/"
 
 [ $download_only -eq 1 ] && exit 0

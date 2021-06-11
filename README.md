@@ -1,4 +1,4 @@
-FFmpeg static build
+FFmpeg static build (FORK from https://github.com/zimbatm/ffmpeg-static)
 ===================
 
 *STATUS*: community-supported
