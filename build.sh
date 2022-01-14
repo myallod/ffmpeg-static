@@ -89,7 +89,8 @@ cd $BUILD_DIR
 
 
 download \
-  "OpenSSL_1_1_1k.tar.gz" "openssl-1.1.1k.tar.gz" "bdd51a68ad74618dd2519da8e0bcc759" "https://github.com/openssl/openssl/archive/"
+  "OpenSSL_1_1_1l.tar.gz" "openssl-1.1.1l.tar.gz" "2ff02cd10f96671162df3efd60470cfe" "https://github.com/openssl/openssl/archive/"
+  #"OpenSSL_1_1_1k.tar.gz" "openssl-1.1.1k.tar.gz" "bdd51a68ad74618dd2519da8e0bcc759" "https://github.com/openssl/openssl/archive/"
   #"OpenSSL_1_1_1f.tar.gz" "openssl-1.1.1f.tar.gz" "39502a8c91204173150f9a3ff9774f05" "https://github.com/openssl/openssl/archive/"
   #"OpenSSL_1_1_1-stable.tar.gz" "" "ca5c434578054a5b2768b2b1c56bd359" "https://github.com/openssl/openssl/archive/"
   #"OpenSSL_1_1_1g.tar.gz" "" "dd32f35dd5d543c571bc9ebb90ebe54e" "https://github.com/openssl/openssl/archive/"
@@ -101,13 +102,14 @@ download \
 
 
 download \
-  "x264-stable.tar.gz" "" "nil" "https://code.videolan.org/videolan/x264/-/archive/stable"
+  "x264-stable.tar.gz" "" "22a80a4558aee0bd64f6fca34c6bcc47" "https://code.videolan.org/videolan/x264/-/archive/stable/"
 
 download \
   "3.4.tar.gz" "x265_3.4.tar.gz" "d867c3a7e19852974cf402c6f6aeaaf3" "https://github.com/videolan/x265/archive/"
 
 download \
-  "v2.0.1.tar.gz" "fdk-aac.tar.gz" "nil" "https://github.com/mstorsjo/fdk-aac/archive"
+  "v2.0.2.tar.gz" "fdk-aac.tar.gz" "b15f56aebd0b4cfe8532b24ccfd8d11e" "https://github.com/mstorsjo/fdk-aac/archive/"
+  #"v2.0.1.tar.gz" "fdk-aac.tar.gz" "nil" "https://github.com/mstorsjo/fdk-aac/archive"
 
 #libass dependency
 download \
@@ -156,7 +158,6 @@ download \
   "Speex-1.2.0.tar.gz" "Speex-1.2.0.tar.gz" "4bec86331abef56129f9d1c994823f03" "https://github.com/xiph/speex/archive/"
 
 download \
-<<<<<<< HEAD
   "n4.4.tar.gz" "ffmpeg4.4.tar.gz" "8c52b3e3926fdbac1e7be3761035741d" "https://github.com/FFmpeg/FFmpeg/archive/refs/tags/"
   #"n4.3.1.tar.gz" "ffmpeg4.3.1.tar.gz" "426ca412ca61634a248c787e29507206" "https://github.com/FFmpeg/FFmpeg/archive/"
 
