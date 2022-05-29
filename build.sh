@@ -89,7 +89,8 @@ cd $BUILD_DIR
 
 
 download \
-  "OpenSSL_1_1_1l.tar.gz" "openssl-1.1.1l.tar.gz" "2ff02cd10f96671162df3efd60470cfe" "https://github.com/openssl/openssl/archive/"
+  "OpenSSL_1_1_1o.tar.gz" "openssl-1.1.1o.tar.gz" "8c7daf923abc12d4492e82d576c779f2" "https://github.com/openssl/openssl/archive/"
+  #"OpenSSL_1_1_1l.tar.gz" "openssl-1.1.1l.tar.gz" "2ff02cd10f96671162df3efd60470cfe" "https://github.com/openssl/openssl/archive/"
   #"OpenSSL_1_1_1k.tar.gz" "openssl-1.1.1k.tar.gz" "bdd51a68ad74618dd2519da8e0bcc759" "https://github.com/openssl/openssl/archive/"
   #"OpenSSL_1_1_1f.tar.gz" "openssl-1.1.1f.tar.gz" "39502a8c91204173150f9a3ff9774f05" "https://github.com/openssl/openssl/archive/"
   #"OpenSSL_1_1_1-stable.tar.gz" "" "ca5c434578054a5b2768b2b1c56bd359" "https://github.com/openssl/openssl/archive/"
@@ -98,11 +99,13 @@ download \
   #"OpenSSL_1_1_0-stable.tar.gz" "" "d3cdee428d9c2ebddb7ebaeda2a4cd0c" "https://github.com/openssl/openssl/archive/"
 
 download \
-  "v1.2.11.tar.gz" "zlib-1.2.11.tar.gz" "0095d2d2d1f3442ce1318336637b695f" "https://github.com/madler/zlib/archive/"
-
+  "v1.2.12.tar.gz" "zlib-1.2.12.tar.gz" "db5b7326d4e0dbcbd1981b640d495c9b" "https://github.com/madler/zlib/archive/"
+  #"v1.2.11.tar.gz" "zlib-1.2.11.tar.gz" "0095d2d2d1f3442ce1318336637b695f" "https://github.com/madler/zlib/archive/"
 
 download \
-  "x264-stable.tar.gz" "" "22a80a4558aee0bd64f6fca34c6bcc47" "https://code.videolan.org/videolan/x264/-/archive/stable/"
+  "x264-master.tar.gz" "" "fa05ae1babd1405a1b8cd6de9ed76e8b" "https://code.videolan.org/videolan/x264/-/archive/master/"
+  #"x264-stable.tar.gz" "" "22a80a4558aee0bd64f6fca34c6bcc47" "https://code.videolan.org/videolan/x264/-/archive/stable/"
+  #wget https://code.videolan.org/videolan/x264/-/archive/master/x264-master.tar.gz
 
 download \
   "3.4.tar.gz" "x265_3.4.tar.gz" "d867c3a7e19852974cf402c6f6aeaaf3" "https://github.com/videolan/x265/archive/"
@@ -117,12 +120,14 @@ download \
   #"2.7.2.tar.gz" "harfbuzz-2.7.2.tar.gz" "2b6dfaf7b3a601c0e2461fcb7fc58736" "https://github.com/harfbuzz/harfbuzz/archive/"
 
 download \
-  "v1.0.9.tar.gz" "fribidi-1.0.9.tar.gz" "c7fe906e2aebc87e674fd450b80c2317" "https://github.com/fribidi/fribidi/archive/"
+  "v1.0.12.tar.gz" "fribidi-1.0.12.tar.gz" "a7d87e1f323d43685c99614a204ea7e5" "https://github.com/fribidi/fribidi/archive/"
+  #"v1.0.9.tar.gz" "fribidi-1.0.9.tar.gz" "c7fe906e2aebc87e674fd450b80c2317" "https://github.com/fribidi/fribidi/archive/"
   #"v1.0.10.tar.gz" "fribidi-1.0.10.tar.gz" "3a6129633ae97a2cec57a6ca53d50599" "https://github.com/fribidi/fribidi/archive/"
-  #v1.0.8.tar.gz" "fribidi-1.0.8.tar.gz" "b279aba7683620c411b16b050cb8f979" "https://github.com/fribidi/fribidi/archive/"
+  #"v1.0.8.tar.gz" "fribidi-1.0.8.tar.gz" "b279aba7683620c411b16b050cb8f979" "https://github.com/fribidi/fribidi/archive/"
 
 download \
-  "0.14.0.tar.gz" "libass-0.14.0.tar.gz" "3c84884aa0589486bded10f71829bf39" "https://github.com/libass/libass/archive/"
+  "0.16.0.tar.gz" "libass-0.14.0.tar.gz" "9603bb71804a27dee6776a8969ecdf1e" "https://github.com/libass/libass/archive/"
+  #"0.14.0.tar.gz" "libass-0.14.0.tar.gz" "3c84884aa0589486bded10f71829bf39" "https://github.com/libass/libass/archive/"
 
 download \
   "lame-3.100.tar.gz" "" "83e260acbe4389b54fe08e0bdbf7cddb" "https://downloads.sourceforge.net/project/lame/lame/3.100"
@@ -131,7 +136,9 @@ download \
   "opus-1.3.1.tar.gz" "" "d7c07db796d21c9cf1861e0c2b0c0617" "https://github.com/xiph/opus/releases/download/v1.3.1"
 
 download \
-  "v1.9.0.tar.gz" "vpx-1.9.0.tar.gz" "e5fab59896984392124d0bfaffc36e14" "https://github.com/webmproject/libvpx/archive"
+  "v1.11.0.tar.gz" "vpx-1.11.0.tar.gz" "82e5e527336b41281a582204db1f3457" "https://github.com/webmproject/libvpx/archive"
+  #"v1.10.0.tar.gz" "vpx-1.10.0.tar.gz" "cded283be38dc0078c3fbe751722efc5" "https://github.com/webmproject/libvpx/archive"
+  #"v1.9.0.tar.gz" "vpx-1.9.0.tar.gz" "e5fab59896984392124d0bfaffc36e14" "https://github.com/webmproject/libvpx/archive"
 
 download \
   "soxr-0.1.3-Source.tar.xz" "" "3f16f4dcb35b471682d4321eda6f6c08" "https://sourceforge.net/projects/soxr/files/"
@@ -140,25 +147,30 @@ download \
   "v1.1.0.tar.gz" "vid.stab-1.1.0.tar.gz" "633af54b7e2fd5734265ac7488ac263a" "https://github.com/georgmartius/vid.stab/archive/"
 
 download \
-  "release-3.0.1.tar.gz" "zimg-release-3.0.1.tar.gz" "b14d551f13819314e9733a400da04121" "https://github.com/sekrit-twc/zimg/archive/"
+  "release-3.0.4.tar.gz" "zimg-release-3.0.4.tar.gz" "9ef18426caecf049d3078732411a9802" "https://github.com/sekrit-twc/zimg/archive/"
+  #"release-3.0.1.tar.gz" "zimg-release-3.0.1.tar.gz" "b14d551f13819314e9733a400da04121" "https://github.com/sekrit-twc/zimg/archive/"
 
 download \
-  "v2.3.1.tar.gz" "openjpeg-2.3.1.tar.gz" "3b9941dc7a52f0376694adb15a72903f" "https://github.com/uclouvain/openjpeg/archive/"
+  "v2.5.0.tar.gz" "openjpeg-2.5.0.tar.gz" "5cbb822a1203dd75b85639da4f4ecaab" "https://github.com/uclouvain/openjpeg/archive/"
+  #"v2.3.1.tar.gz" "openjpeg-2.3.1.tar.gz" "3b9941dc7a52f0376694adb15a72903f" "https://github.com/uclouvain/openjpeg/archive/"
 
 download \
-  "v1.1.0.tar.gz" "libwebp-1.1.0.tar.gz" "35831dd0f8d42119691eb36f2b9d23b7" "https://github.com/webmproject/libwebp/archive/"
+  "v1.2.2.tar.gz" "libwebp-1.2.2.tar.gz" "cafb3f64313daa7492cd08c06dd76801" "https://github.com/webmproject/libwebp/archive/"
+  #"v1.1.0.tar.gz" "libwebp-1.1.0.tar.gz" "35831dd0f8d42119691eb36f2b9d23b7" "https://github.com/webmproject/libwebp/archive/"
 
 download \
   "v1.3.7.tar.gz" "vorbis-1.3.7.tar.gz" "689dc495b22c5f08246c00dab35f1dc7" "https://github.com/xiph/vorbis/archive/"
 
 download \
-  "v1.3.4.tar.gz" "ogg-1.3.4.tar.gz" "df1a9a95251a289aa5515b869db4b15f" "https://github.com/xiph/ogg/archive/"
+  "v1.3.5.tar.gz" "ogg-1.3.5.tar.gz" "52b33b31dfff09a89ad1bc07248af0bd" "https://github.com/xiph/ogg/archive/"
+  #"v1.3.4.tar.gz" "ogg-1.3.4.tar.gz" "df1a9a95251a289aa5515b869db4b15f" "https://github.com/xiph/ogg/archive/"
 
 download \
   "Speex-1.2.0.tar.gz" "Speex-1.2.0.tar.gz" "4bec86331abef56129f9d1c994823f03" "https://github.com/xiph/speex/archive/"
 
 download \
-  "n4.4.tar.gz" "ffmpeg4.4.tar.gz" "8c52b3e3926fdbac1e7be3761035741d" "https://github.com/FFmpeg/FFmpeg/archive/refs/tags/"
+  "n5.0.tar.gz" "ffmpeg5.0.tar.gz" "fb06e31c0bef2cc42b0ddf07a3412814" "https://github.com/FFmpeg/FFmpeg/archive/refs/tags/"
+  #"n4.4.tar.gz" "ffmpeg4.4.tar.gz" "8c52b3e3926fdbac1e7be3761035741d" "https://github.com/FFmpeg/FFmpeg/archive/refs/tags/"
   #"n4.3.1.tar.gz" "ffmpeg4.3.1.tar.gz" "426ca412ca61634a248c787e29507206" "https://github.com/FFmpeg/FFmpeg/archive/"
 
 [ $download_only -eq 1 ] && exit 0
@@ -179,12 +191,12 @@ cd $BUILD_DIR/nasm*
 make -j $jval
 make install
 
-#echo "*** Building OpenSSL ***"
-#cd $BUILD_DIR/openssl*
-#[ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-#PATH="$BIN_DIR:$PATH" ./config --prefix=$TARGET_DIR
-#PATH="$BIN_DIR:$PATH" make -j $jval
-#make install_sw
+echo "*** Building OpenSSL ***"
+cd $BUILD_DIR/openssl*
+[ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
+PATH="$BIN_DIR:$PATH" ./config --prefix=$TARGET_DIR
+PATH="$BIN_DIR:$PATH" make -j $jval
+make install_sw
 
 echo "*** Building zlib ***"
 cd $BUILD_DIR/zlib*
